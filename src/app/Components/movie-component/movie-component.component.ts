@@ -8,16 +8,21 @@ import { movie_result } from '../../Interfaces/Interface';
   styleUrls: ['./movie-component.component.css']
 })
 export class MovieComponentComponent implements OnInit {
-
+  
+  movies : movie_result[] = []
   constructor(
-   private _api: ApiService
-  ) {
-    
+    private _api: ApiService
+    ) {
+      this._api.query(this._api.topRatePath).subscribe(data => this._api.getData(data.results.slice(1,11),this.movies))
+      // this._api.query(this._api.topRatePath).subscribe(data => this.movies = data)
   }
-  movie : movie_result[] = [{}]
   ngOnInit(): void {
-   console.log(this._api.query(this._api.topRatePath))
   }
+
+  // Peticion(){
+  //   console.log(this.movie[0].id)
+  //   console.log(Object.values(this.movie))
+  // }
 
 
   // movies: movieElement[] = [
