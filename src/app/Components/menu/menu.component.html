@@ -1,0 +1,33 @@
+<div class="container">
+    <menu>
+        <!-- Icono que direcciona al inicio -->
+        <button mat-button>
+            <mat-icon>home</mat-icon>
+        </button>
+        <!-- Menu para las categorias de Peliculas -->
+        <button mat-button [matMenuTriggerFor]="movieMenu">Peliculas</button>
+        <mat-menu #movieMenu="matMenu" yPosition="below">
+            <button mat-menu-item>Top 10</button>
+            <button mat-menu-item>Acción</button>
+            <button mat-menu-item>Terror</button>
+            <button mat-menu-item>Comedia</button>
+            <button mat-menu-item>Romance</button>
+        </mat-menu>
+        <!-- Menu para las categorias de Series -->
+        <button mat-button [matMenuTriggerFor]="seriesMenu">Series</button>
+        <mat-menu #seriesMenu="matMenu" yPosition="below">
+            <button mat-menu-item>Top 10</button>
+            <button mat-menu-item>Acción</button>
+            <button mat-menu-item>Terror</button>
+            <button mat-menu-item>Comedia</button>
+            <button mat-menu-item>Romance</button>
+        </mat-menu>
+    </menu>
+    <mat-form-field class="query">
+        <mat-label>Busqueda</mat-label>
+        <input matInput type="text" [(ngModel)]="queryValue">
+        <button mat-button *ngIf="queryValue" matSuffix mat-icon-button aria-label="Clear" (click)="queryValue=''">
+            <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>

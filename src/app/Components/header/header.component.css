@@ -1,0 +1,35 @@
+.container {
+    background-color: #660424;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+h1 { 
+    color: white;
+    flex: 1;
+    margin: 0;
+    text-align: center;
+}
+
+.logo { 
+    flex: 1;
+    height: 70px;
+    margin: 0;
+}
+
+.logo img {
+    width: 70px;
+}
+
+.banner {
+    display: flex;
+    flex: 1;
+    height: 70px;
+    margin: 0;
+    justify-content: flex-end;
+}
+
+.banner img{
+    height: 70px;
+}

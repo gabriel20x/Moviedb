@@ -1,0 +1,18 @@
+.mat-grid-tile {
+    background: url("https://animerelleno.com/storage/animes/poster/toradora.jpg") no-repeat ;
+    background-size: cover;
+    border-radius: 15px;
+}
+.mat-grid-tile .mat-grid-tile-header {
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-grid-tile .mat-grid-tile-footer {
+    display: flex;
+    height: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px;
+}

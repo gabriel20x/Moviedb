@@ -1,0 +1,10 @@
+.root {
+    --primColor: #660424;
+    --secColor: #db002c;
+    --headerColor: #3f0216;
+    --anotherColor: #bfce9b;
+}
+
+body {
+    background-color: var(--headerColor);
+}

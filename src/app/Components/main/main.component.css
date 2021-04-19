@@ -1,0 +1,22 @@
+.container {
+    display: flex;
+    width: auto;
+    margin: 15px;
+    margin-right: 0;
+    justify-content: space-between;
+}
+
+.sort {
+    width: 200px;
+    height: auto;
+}
+
+.elements-container{
+    width: 100%;
+    height: auto;
+    margin: 10px;
+    margin-top: 0;
+    border-radius: 15px;
+    background-color: #660424;
+    padding: 15px;
+}
