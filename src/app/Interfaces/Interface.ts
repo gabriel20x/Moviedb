@@ -1,4 +1,4 @@
-export interface movie_result {
+export interface MovieResult {
         id : number
         original_title : string
         popularity : number
