@@ -21,8 +21,14 @@ export class GetMoviesQuerysService {
   //Paths
   TopRatePath = "/movie/top_rated"
   DiscoverPath = "/discover/movie"
+  GenersPath = "/genre/movie/list"
   QueryString : string = ''
   ParamsString : String = ''
+  
+  GenersQuery(){
+    this.QueryString = `${this.ApiUrl}${this.GenersPath}?api_key=${this.ApiKey}&language=en-US`
+    return this._http.get<any>(this.QueryString)
+  }
 
   SearchQuery(Params:SearchMovieParams):Observable<any>{
     Object.entries(Params).forEach(([key,value]) => {

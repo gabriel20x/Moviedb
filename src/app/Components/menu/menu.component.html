@@ -2,16 +2,14 @@
     <menu>
         <!-- Icono que direcciona al inicio -->
         <button mat-button>
-            <mat-icon>home</mat-icon>
+            <mat-icon (click)="TopMovies()">home</mat-icon>
         </button>
         <!-- Menu para las categorias de Peliculas -->
         <button mat-button [matMenuTriggerFor]="movieMenu">Peliculas</button>
         <mat-menu #movieMenu="matMenu" yPosition="below">
-            <button mat-menu-item (click)="TopMovies()">Top Movies</button>
-            <button mat-menu-item (click)="ActionMovie()">Acción</button>
-            <button mat-menu-item (click)="TerrorMovie()">Terror</button>
-            <button mat-menu-item (click)="ComediaMovie()">Comedia</button>
-            <button mat-menu-item (click)="RomanceMovie()">Romance</button>
+            <button mat-menu-item *ngFor ="let genres of _result.genres " (click)="MoviesCategories(genres.id)">
+                {{genres.name}}
+            </button>
         </mat-menu>
         <!-- Menu para las categorias de Series -->
         <button mat-button [matMenuTriggerFor]="seriesMenu">Series</button>

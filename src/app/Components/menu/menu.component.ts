@@ -12,8 +12,10 @@ import { ResultMethodsService } from 'src/app/Services/result-methods.service';
 export class MenuComponent implements OnInit {
 
   constructor(
-    private _result : ResultMethodsService
-    ) {}
+    public _result : ResultMethodsService
+    ) {
+      this._result.MoviesGenersResult()
+    }
   ngOnInit(): void {
   }
   QueryValue : string = ''
@@ -22,22 +24,9 @@ TopMovies(){
   this._result.MoviesTopRatedResult()
 }
 
-ActionMovie(){
-  this._result.searchParams.with_genres="18"
+MoviesCategories(id:number){
+  this._result.searchParams.with_genres=`${id}`
   this._result.MoviesSearchResult()
 }
-TerrorMovie(){
-  this._result.searchParams.with_genres="53,27"
-  this._result.MoviesSearchResult()
-}
-RomanceMovie(){
-  this._result.searchParams.with_genres="10749"
-  this._result.MoviesSearchResult()
-}
-ComediaMovie(){
-  this._result.searchParams.with_genres="35"
-  this._result.MoviesSearchResult()
-}
-
 
 }

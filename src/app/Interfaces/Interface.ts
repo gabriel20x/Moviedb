@@ -33,3 +33,10 @@ enum SortByOptions {
         VoteAverageAsc = "vote_average.asc",
         VoteAverageDesc = "vote_average.desc"
 }
+
+// Estructura del objeto que contiene los generos
+
+export interface Geners {
+        id : number
+        name : string
+}
