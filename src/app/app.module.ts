@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './Components/header/header.component';
 import { MainComponent } from './Components/main/main.component';
 import { MenuComponent } from './Components/menu/menu.component';
+import { SeriesComponent } from './Components/series/series.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MovieComponentComponent } from './Components/movie-component/movie-component.component';
 import { SortByBoxComponent } from './Components/sort-by-box/sort-by-box.component';
@@ -29,7 +30,8 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     MenuComponent,
     MovieComponentComponent,
-    SortByBoxComponent
+    SortByBoxComponent,
+    SeriesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,13 @@
+<mat-grid-list cols="4" rowHeight="250px" gutterSize= "15px">
+    <mat-grid-tile
+    *ngFor="let serie of _result.series " >
+        <img src="{{serie.poster_path}}" alt="{{serie.original_name}}" class="img">
+        <mat-grid-tile-header>
+            <h2>{{ serie.original_name }}</h2>
+        </mat-grid-tile-header>
+        <mat-grid-tile-footer>
+            <p>Score {{ serie.popularity}} </p>
+            <p>{{serie.first_air_date}}</p>
+        </mat-grid-tile-footer>
+    </mat-grid-tile>
+</mat-grid-list>

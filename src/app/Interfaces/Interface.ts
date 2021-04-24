@@ -7,7 +7,7 @@ export interface MovieResult {
         release_date : string
 }
 
-// Estructura del objeto que contiene los PARAMETROS DE BUSQUEDA
+// Estructura del objeto que contiene los PARAMETROS DE BUSQUEDA de PELICULAS
 
 export interface SearchMovieParams {
         sort_by : SortByOptions
@@ -23,6 +23,27 @@ export interface SearchMovieParams {
         without_genres : string
 }
 
+// Estructura del objeto con la información para las SERIES
+export interface SeriesResult {
+        id : number
+        original_name : string
+        popularity : number
+        poster_path : any
+        first_air_date : string
+}
+
+// Estructura del objeto que contiene los PARAMETROS DE BUSQUEDA de SERIES
+
+export interface SearchSeriesParams {
+        sort_by : SortByOptions
+        page : number
+        // Filtrar por año de primera temporada
+        firts_air_date_year: number
+        // Filtrar por generos
+        with_genres: string
+        without_genres : string
+}
+// Opciones de filtrado para Peliculas y Series
 enum SortByOptions {
         PopularityAsc = "pupularity.asc",
         PopularityDesc = "popularity.desc",
@@ -31,12 +52,14 @@ enum SortByOptions {
         OriginalTitleAsc = "original_title.asc",
         OriginalTitleDesc= "original_title.desc",
         VoteAverageAsc = "vote_average.asc",
-        VoteAverageDesc = "vote_average.desc"
+        VoteAverageDesc = "vote_average.desc",
+        FirstAirDateAsc = "first_air_date.asc",
+        FirstAirDateDesc = "first_air_date.desc"
 }
-
 // Estructura del objeto que contiene los generos
 
-export interface Geners {
+export interface Genres {
         id : number
         name : string
 }
+

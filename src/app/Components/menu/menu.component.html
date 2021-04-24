@@ -2,23 +2,28 @@
     <menu>
         <!-- Icono que direcciona al inicio -->
         <button mat-button>
-            <mat-icon (click)="TopMovies()">home</mat-icon>
+            <mat-icon (click)="TopMovies()" routerLink="">home</mat-icon>
         </button>
         <!-- Menu para las categorias de Peliculas -->
         <button mat-button [matMenuTriggerFor]="movieMenu">Peliculas</button>
         <mat-menu #movieMenu="matMenu" yPosition="below">
-            <button mat-menu-item *ngFor ="let genres of _result.genres " (click)="MoviesCategories(genres.id)">
-                {{genres.name}}
+            <button mat-menu-item 
+            *ngFor ="let movie_gender of _result.movies_genres " 
+            (click)="MoviesCategories(movie_gender.id)"
+            routerLink="">
+                {{movie_gender.name}}
             </button>
         </mat-menu>
         <!-- Menu para las categorias de Series -->
         <button mat-button [matMenuTriggerFor]="seriesMenu">Series</button>
         <mat-menu #seriesMenu="matMenu" yPosition="below">
-            <button mat-menu-item>Top 10</button>
-            <button mat-menu-item>Acción</button>
-            <button mat-menu-item>Terror</button>
-            <button mat-menu-item>Comedia</button>
-            <button mat-menu-item>Romance</button>
+            <button mat-menu-item (click)="TopSeries()" routerLink="Series">Top</button>
+            <button mat-menu-item
+            *ngFor ="let serie_gender of _result.series_genres " 
+            (click)="SeriesCategories(serie_gender.id)"
+            routerLink="Series">
+                {{serie_gender.name}}
+            </button>
         </mat-menu>
     </menu>
     <mat-form-field class="query">

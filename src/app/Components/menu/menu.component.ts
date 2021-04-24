@@ -1,7 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SearchMovieParams } from '../../Interfaces/Interface';
-// import { GetMoviesQuerysService } from 'src/app/Services/get-movies-querys.service';
-// import { MovieResult } from '../../Interfaces/Interface';
 import { ResultMethodsService } from 'src/app/Services/result-methods.service';
  
 @Component({
@@ -15,6 +12,7 @@ export class MenuComponent implements OnInit {
     public _result : ResultMethodsService
     ) {
       this._result.MoviesGenersResult()
+      this._result.SeriesGenersResult()
     }
   ngOnInit(): void {
   }
@@ -25,8 +23,17 @@ TopMovies(){
 }
 
 MoviesCategories(id:number){
-  this._result.searchParams.with_genres=`${id}`
+  this._result.search_movies_params.with_genres=`${id}`
   this._result.MoviesSearchResult()
+}
+
+TopSeries(){
+  this._result.SeriesTopRatedResult()
+}
+
+SeriesCategories(id:number){
+  this._result.search_series_params.with_genres=`${id}`
+  this._result.SeriesSearchResult()
 }
 
 }
