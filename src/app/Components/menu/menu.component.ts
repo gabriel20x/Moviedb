@@ -18,9 +18,26 @@ export class MenuComponent implements OnInit {
   }
   QueryValue : string = ''
 
+TopMovies(){
+  this._result.MoviesTopRatedResult()
+}
+
 ActionMovie(){
   this._result.searchParams.with_genres="18"
   this._result.MoviesSearchResult()
 }
+TerrorMovie(){
+  this._result.searchParams.with_genres="53,27"
+  this._result.MoviesSearchResult()
+}
+RomanceMovie(){
+  this._result.searchParams.with_genres="10749"
+  this._result.MoviesSearchResult()
+}
+ComediaMovie(){
+  this._result.searchParams.with_genres="35"
+  this._result.MoviesSearchResult()
+}
+
 
 }
