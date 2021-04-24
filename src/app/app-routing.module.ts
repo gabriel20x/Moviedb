@@ -9,7 +9,7 @@ const routes: Routes = [
     component: MainComponent
   },
   // {
-  //   path: '',
+  //   path: 'Action',
   //   component: 
   // }
 ];

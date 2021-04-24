@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from 'src/app/Services/api.service';
-import { movie_result } from '../../Interfaces/Interface';
+// import { ApiService } from 'src/app/Services/api.service';
+import { ResultMethodsService } from 'src/app/Services/result-methods.service';
+import { MovieResult } from '../../Interfaces/Interface';
 
 @Component({
   selector: 'app-movie-component',
@@ -8,33 +9,16 @@ import { movie_result } from '../../Interfaces/Interface';
   styleUrls: ['./movie-component.component.css']
 })
 export class MovieComponentComponent implements OnInit {
-  
-  movies : movie_result[] = []
+  // movies : MovieResult[] = []
   constructor(
-    private _api: ApiService
+    public _result : ResultMethodsService
     ) {
-      this._api.query(this._api.topRatePath).subscribe(data => this._api.getData(data.results.slice(1,11),this.movies))
-      // this._api.query(this._api.topRatePath).subscribe(data => this.movies = data)
+    // this._api.query(this._api.topRatePath).subscribe(data => this.movies = this._api.getData(data.results.slice(1,11)))
+    this._result.MoviesTopRatedResult()
   }
   ngOnInit(): void {
   }
 
-  // Peticion(){
-  //   console.log(this.movie[0].id)
-  //   console.log(Object.values(this.movie))
-  // }
 
 
-  // movies: movieElement[] = [
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021},
-  //   {imgUrl: 'https://animerelleno.com/storage/animes/poster/toradora.jpg', title: "Toradora", score: 100, year: 2021}
-  // ];
 }

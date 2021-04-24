@@ -1,7 +1,7 @@
 <mat-grid-list cols="4" rowHeight="250px" gutterSize= "15px">
     <mat-grid-tile
-    *ngFor="let movie of movies" >
-        {{ movie.poster_path }}
+    *ngFor="let movie of _result.movies " >
+        <img src="{{movie.poster_path}}" alt="{{movie.original_title}}" class="img">
         <mat-grid-tile-header>
             <h2>{{ movie.original_title }}</h2>
         </mat-grid-tile-header>
