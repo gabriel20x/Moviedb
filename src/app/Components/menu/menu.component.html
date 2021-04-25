@@ -28,8 +28,17 @@
     </menu>
     <mat-form-field class="query">
         <mat-label>Busqueda</mat-label>
-        <input matInput type="text" [(ngModel)]="QueryValue">
-        <button mat-button *ngIf="QueryValue" matSuffix mat-icon-button aria-label="Clear" (click)="QueryValue=''">
+        <input  type="text" 
+                matInput 
+                [formControl]="QueryValue"
+                [matAutocomplete]="auto"
+                >
+        <mat-autocomplete autoActiveFirtsOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option.name">
+                {{option.name}}
+            </mat-option>
+        </mat-autocomplete>
+        <button mat-button *ngIf="QueryValue" matSuffix mat-icon-button aria-label="Clear" (click)="ClearQueryValue()">
             <mat-icon>close</mat-icon>
         </button>
     </mat-form-field>

@@ -63,3 +63,11 @@ export interface Genres {
         name : string
 }
 
+// Estructura para el filtro del menu
+
+export interface MenuFilter{
+        id : number
+        name: string
+        media_type: string
+}
+

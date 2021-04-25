@@ -6,11 +6,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { from } from 'rxjs';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,7 +47,9 @@ import { HttpClientModule } from '@angular/common/http';
     MatGridListModule,
     MatFormFieldModule,
     MatSelectModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
