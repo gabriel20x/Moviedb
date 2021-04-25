@@ -5,7 +5,6 @@ import { MenuMultiSearchService } from 'src/app/Services/menu-multi-search.servi
 import { debounceTime, map, startWith } from 'rxjs/operators';
 import { Observable } from 'rxjs'
 import { MenuFilter} from '../../Interfaces/Interface';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
  
 @Component({
   selector: 'app-menu',
@@ -13,34 +12,36 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
+  
   constructor(
     public _result : ResultMethodsService,
     public _menuSearch: MenuMultiSearchService
-    ) {
-        // autocompletacion para la busqueda
-    this.filteredOptions = this.QueryValue.valueChanges
-    .pipe(
-    startWith(''),
-    map(option => option ? this._filterOptions(option) : this._menuSearch.Search.slice())
-    )
+    ) { 
+      this.filteredOptions = this.QueryValue.valueChanges
+      .pipe(
+        startWith(''),
+        debounceTime(500),
+        map(option => option ? this._filterOptions(option) : this._menuSearch.Search.slice())
+      );
     }
-    ngOnInit(): void {
-    this._result.MoviesGenersResult()
-    this._result.SeriesGenersResult()
-  // detecta cambios en la busqueda y solicita la lista de resultados
-    this.QueryValue.valueChanges
-    .pipe(
-      debounceTime(350)
-      )
-    .subscribe(value => this._menuSearch.MenuFilterResult(value))
-  }
-  
-  TopMovies(){
-    this._result.MoviesTopRatedResult()
-  }
-
-MoviesCategories(id:number){
+      ngOnInit(): void {
+        this._result.MoviesGenersResult()
+        this._result.SeriesGenersResult()
+        // detecta cambios en la busqueda y solicita la lista de resultados
+        this.QueryValue.valueChanges
+        .pipe(
+          debounceTime(200)
+          )
+          .subscribe(value => {
+            this._menuSearch.MenuFilterResult(value)
+          })
+        }
+        
+        TopMovies(){
+          this._result.MoviesTopRatedResult()
+        }
+        
+        MoviesCategories(id:number){
   this._result.search_movies_params.with_genres=`${id}`
   this._result.MoviesSearchResult()
 }
@@ -60,8 +61,7 @@ ClearQueryValue(){
 }
 // @Output('QueryValue') SearchEmitter = new EventEmitter<string>()
 private _filterOptions(value: string): MenuFilter[] {
-  const filterValue = value.toLowerCase();
 
-  return this._menuSearch.Search.filter(search => search.name.toLowerCase().indexOf(filterValue) === 0);
+  return this._menuSearch.Search.filter(search => search.name)
 }
 }
